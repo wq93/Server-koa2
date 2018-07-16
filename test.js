@@ -30,9 +30,11 @@ function compose(middlewares) {
 
     function dispatch(i) {
       let fn = middlewares[i]
+      console.log(fn)
       if (!fn) {
         return Promise.resolve()
       }
+      // Promise.resolve立即返回执行结果
       return Promise.resolve(fn(function next() {
         return dispatch(i + 1)
       }))
