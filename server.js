@@ -1,14 +1,25 @@
 const Woa = require('./application')
 const app = new Woa()
 
-app.use((req, res) => {
-  res.writeHead(200)
-  res.end('hello node')
+app.use(async ctx => {
+  ctx.body = 'hello voa' + ctx.url
 })
 
-app.listen(9092, () => {
-  console.log('server is running')
+app.listen(9090, () => {
+  console.log('server running....')
 })
+
+// const Woa = require('./application')
+// const app = new Woa()
+//
+// app.use((req, res) => {
+//   res.writeHead(200)
+//   res.end('hello node')
+// })
+//
+// app.listen(9092, () => {
+//   console.log('server is running')
+// })
 
 
 // const http = require('http')
